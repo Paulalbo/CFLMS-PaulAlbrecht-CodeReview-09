@@ -1,0 +1,16 @@
+SELECT package_id, package_weight from package
+
+SELECT receiver_id, receiver_address from receiver
+
+SELECT sender_FirstName, sender_LastName
+from sender
+
+SELECT sender.sender_FirstName, sender.sender_LastName, sender.sender_address, receiver.receiver_FirstName, receiver.receiver_LastName, receiver.receiver_address, delivery.delivery_time
+FROM sender 
+  JOIN receiver receiver ON sender.sender_id = receiver.receiver_id 
+  JOIN delivery delivery ON delivery.delivery_id = receiver.receiver_id
+ORDER BY sender.sender_id
+
+SELECT receiver_FirstName from receiver
+
+SELECT receiver_LastName from receiver
